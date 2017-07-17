@@ -1,0 +1,28 @@
+{
+  "name": "curry-named",
+  "version": "1.0.0",
+  "description": "Curry for named arguments",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gunar/curry-named.git"
+  },
+  "keywords": [
+    "curry",
+    "named-arguments"
+  ],
+  "author": "me@gunargessner.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gunar/curry-named/issues"
+  },
+  "homepage": "https://github.com/gunar/curry-named#readme",
+  "devDependencies": {
+    "lodash": "^4.17.4",
+    "nodemon": "^1.11.0",
+    "tape": "^4.7.0"
+  }
+}
