@@ -2,11 +2,11 @@
 
 function curryNamed (keys, fn) {
   return function helper (o) {
-    return function (o2) {
-      const obj = Object.assign({}, o, o2)
+    return function (...objects) {
+      const obj = Object.assign({}, o, ...objects)
       return includes(keys, Object.keys(obj)) ? fn(obj) : helper(obj)
     }
-  }
+  }({})
 }
 
 const includes = (mandatory, received) =>

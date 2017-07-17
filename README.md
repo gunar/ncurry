@@ -2,7 +2,7 @@
 
 Curry for named arguments
 
-## usage
+## Usage
 
 ```js
 var curry = require('curry-named')
@@ -13,6 +13,15 @@ const foo = curry(
     a + b + c)
 
 foo({ a: 1 })({ b: 2, c: 3}) // 6
+```
+
+### Partial application works too
+
+```js
+cont { partial } = require('lodash/fp')
+const partiallyApplied = partial(foo)([{ a: 1 }])
+const actual = partiallyApplied({ b: 2 })({ c: 4 })
+const expected = 7
 ```
 
 ## Inspiration
