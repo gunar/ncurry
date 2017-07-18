@@ -1,11 +1,11 @@
-# curry-named
+# ncurry
 
 Curry for named arguments.
 
 ## Usage
 
 ```js
-var curry = require('curry-named')
+var curry = require('ncurry')
 
 const foo = curry(
   ['a', 'b', 'c'],
@@ -18,7 +18,7 @@ foo({ a: 1 })({ b: 2, c: 3}) // 6
 ### Accepts optional arguments
 
 ```js
-var curry = require('curry-named')
+var curry = require('ncurry')
 
 const foo = curry(
   ['a', 'c'],
