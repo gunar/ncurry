@@ -1,6 +1,6 @@
 # curry-named
 
-Curry for named arguments
+Curry for named arguments.
 
 ## Usage
 
@@ -13,6 +13,20 @@ const foo = curry(
     a + b + c)
 
 foo({ a: 1 })({ b: 2, c: 3}) // 6
+```
+
+### Accepts optional arguments
+
+```js
+var curry = require('curry-named')
+
+const foo = curry(
+  ['a', 'c'],
+  ({a, b, c}) =>
+    a + b + c)
+
+foo({ a: 1 })({ b: 2, c: 3}) // 6
+foo({ a: 1 })({ c: 3 }) // 4
 ```
 
 ### Partial application works too
