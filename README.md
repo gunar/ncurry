@@ -42,3 +42,7 @@ const expected = 7
 
 - [Gist and discussion](https://gist.github.com/gunar/1268c997ca66343f060dbca07aee67bd)
 - [named-curry](https://github.com/rjmk/named-curry)
+
+## License
+
+MIT [http://gunar.mit-license.org]()
