@@ -1,8 +1,8 @@
 const test = require('tape')
 const { partial } = require('lodash/fp')
-const curry = require('./')
+const ncurry = require('./')
 
-const foo = curry(
+const foo = ncurry(
   ['a', 'b', 'c'],
   ({a, b, c}) => a + b + c)
 

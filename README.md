@@ -5,9 +5,9 @@ Curry for named arguments.
 ## Usage
 
 ```js
-var curry = require('ncurry')
+var ncurry = require('ncurry')
 
-const foo = curry(
+const foo = ncurry(
   ['a', 'b', 'c'],
   ({a, b, c}) =>
     a + b + c)
@@ -18,9 +18,9 @@ foo({ a: 1 })({ b: 2, c: 3}) // 6
 ### Accepts optional arguments
 
 ```js
-var curry = require('ncurry')
+var ncurry = require('ncurry')
 
-const foo = curry(
+const foo = ncurry(
   ['a', 'c'],
   ({a, b, c}) =>
     a + b + c)
