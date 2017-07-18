@@ -12,7 +12,7 @@ const foo = ncurry(
   ({a, b, c}) =>
     a + b + c)
 
-foo({ a: 1 })({ b: 2, c: 3}) // 6
+foo({ a: 1 })({ b: 2, c: 3 }) // 6
 ```
 
 ### Accepts optional arguments
@@ -25,7 +25,7 @@ const foo = ncurry(
   ({a, b, c}) =>
     a + b + c)
 
-foo({ a: 1 })({ b: 2, c: 3}) // 6
+foo({ a: 1 })({ b: 2, c: 3 }) // 6
 foo({ a: 1 })({ c: 3 }) // 4
 ```
 
