@@ -6,10 +6,6 @@
   "scripts": {
     "test": "node test.js"
   },
-  "files": [
-    "index.js",
-    "README.md"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gunar/curry-named.git"
