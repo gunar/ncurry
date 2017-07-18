@@ -1,6 +1,6 @@
 {
   "name": "curry-named",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Curry for named arguments",
   "main": "index.js",
   "scripts": {
