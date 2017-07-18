@@ -32,10 +32,16 @@ foo({ a: 1 })({ c: 3 }) // 4
 ### Partial application works too
 
 ```js
-cont { partial } = require('lodash/fp')
-const partiallyApplied = partial(foo)([{ a: 1 }])
-const actual = partiallyApplied({ b: 2 })({ c: 4 })
-const expected = 7
+const ncurry = require('ncurry')
+const { partial } = require('lodash/fp')
+
+const foo = ncurry(
+  ['a', 'c'],
+  ({a, b, c}) =>
+    a + b + c)
+
+const fooabc = partial(foo)([{ a: 1, b: 2, c: 3 }])
+fooabc() // 7
 ```
 
 ## Inspiration
