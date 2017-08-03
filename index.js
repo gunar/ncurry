@@ -2,14 +2,13 @@
 
 const parseFn = require('parse-function')().parse
 const omit = require('lodash.omit')
-const reject = require('lodash.reject')
 
-const CATCHALL_ARGUMENT = 'opts'
-const isCatchAll = x => x == CATCHALL_ARGUMENT
+const isDeconstruction = x => x === false
+const not = fn => (...args) => ! fn(...args)
 const objArgsToArray = ({ obj, args }) =>
   args.reduce((acc, param) =>
-    param === CATCHALL_ARGUMENT
-      ? [...acc, omit(obj, reject(args, isCatchAll))]
+    param === false
+      ? [...acc, omit(obj, args)]
       : [...acc, obj[param]]
   , [])
 
@@ -22,7 +21,7 @@ function namedCurry (fn) {
       const error = `The following arguments were overidden: ${argsOverridden}`
       if (argsOverridden.length > 0) throw Error(error)
       const obj = Object.assign({}, cache, ...objects)
-      const mandatoryArgs = reject(args, isCatchAll)
+      const mandatoryArgs = args.filter(not(isDeconstruction))
       return includesEvery(mandatoryArgs, Object.keys(obj))
         ? fn(...objArgsToArray({ obj, args }))
         : helper(obj)

@@ -42,16 +42,8 @@ test('argument overriding', t => {
 })
 
 test('optional arguments', t => {
-  const bar = ncurry((a, b, opts, c) => a + b + c + opts.z)
+  const bar = ncurry((a, b, { z }, c) => a + b + c + z)
   const actual = bar({ a: 1, z: 10 })({ b: 2, c: 4})
-  const expected = 17
-  t.equal(actual, expected)
-  t.end()
-})
-
-test('opts arg conflict', t => {
-  const bar = ncurry((a, b, opts, c) => a + b + c + opts.opts)
-  const actual = bar({ a: 1, opts: 10 })({ b: 2, c: 4})
   const expected = 17
   t.equal(actual, expected)
   t.end()
