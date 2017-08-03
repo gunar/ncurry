@@ -41,3 +41,10 @@ test('argument overriding', t => {
   }
 })
 
+test('optional arguments', t => {
+  const bar = ncurry((a, b, opts, c) => a + b + c + opts.z)
+  const actual = bar({ a: 1, z: 10 })({ b: 2, c: 4})
+  const expected = 17
+  t.equal(actual, expected)
+  t.end()
+})
