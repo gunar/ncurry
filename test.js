@@ -2,9 +2,7 @@ const test = require('tape')
 const { partial } = require('lodash/fp')
 const ncurry = require('./')
 
-const foo = ncurry(
-  ['a', 'b', 'c'],
-  ({a, b, c}) => a + b + c)
+const foo = ncurry((a, b, c) => a + b + c)
 
 test('original function', t => {
   const actual = foo({ a: 1, b: 2, c: 4})
