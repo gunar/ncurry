@@ -48,3 +48,11 @@ test('optional arguments', t => {
   t.equal(actual, expected)
   t.end()
 })
+
+test('opts arg conflict', t => {
+  const bar = ncurry((a, b, opts, c) => a + b + c + opts.opts)
+  const actual = bar({ a: 1, opts: 10 })({ b: 2, c: 4})
+  const expected = 17
+  t.equal(actual, expected)
+  t.end()
+})
