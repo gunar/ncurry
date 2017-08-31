@@ -26,7 +26,7 @@
     "tape": "^4.7.0"
   },
   "dependencies": {
-    "lodash.omit": "^4.5.0",
-    "parse-function": "^4.0.3"
+    "fn-args": "^3.0.0",
+    "lodash.omit": "^4.5.0"
   }
 }

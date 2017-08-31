@@ -1,19 +1,19 @@
 'use strict'
 
-const parseFn = require('parse-function')().parse
+const fnArgs = require('fn-args')
 const omit = require('lodash.omit')
 
-const isDeconstruction = x => x === false
 const not = fn => (...args) => ! fn(...args)
+const isDeconstruction = x => /^{.*}$/.test(x)
 const objArgsToArray = ({ obj, args }) =>
   args.reduce((acc, param) =>
-    param === false
+    isDeconstruction(param)
       ? [...acc, omit(obj, args)]
       : [...acc, obj[param]]
   , [])
 
 function namedCurry (fn) {
-  const { args } = (parseFn(fn))
+  const args = fnArgs(fn)
   return function helper (cache) {
     return function (...objects) {
       const incoming = Object.assign({}, ...objects)
