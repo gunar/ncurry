@@ -1,6 +1,6 @@
 # ncurry
 
-![ci](https://circleci.com/gh/gunar/ncurry.png?circle-token=158755b2084a927f33b1642a7667870adcba2fb9)
+[![ci](https://circleci.com/gh/gunar/ncurry.png?circle-token=158755b2084a927f33b1642a7667870adcba2fb9)](https://circleci.com/gh/gunar/ncurry)
 
 Curry with named arguments (as opposed to positional).
 
