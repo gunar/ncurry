@@ -1,28 +1,39 @@
 # ncurry
 
-Curry for named arguments.
+Curry for Named Arguments.
 
 ## Usage
 
-Define function with positional arguments, call functions with named arguments.
+Define functions with positional arguments, call it with named arguments.
 
 ```js
-var ncurry = require('ncurry')
+const ncurry = require('ncurry')
 
-const foo = ncurry((a, b, c) => a + b + c)
+const multiply = ncurry((a, b) => a * b)
 
-foo({ a: 1 })({ b: 2, c: 3 }) // 6
+// pass one argument at a time
+multiply({ a: 2 })({ b: 3 }) // 6
+
+// or all at once
+multiply({ a: 2, b: 3 }) // 6
 ```
 
-### Accepts optional arguments (as deconstruction)
+### Optional arguments
+
+Use destructuring for arguments that are optional.
 
 ```js
-var ncurry = require('ncurry')
+const ncurry = require('ncurry')
 
-const foo = ncurry((a, b, { c }) => a + b + c)
+const divide = ncurry((dividend, divisor, { round = false }) =>
+  round
+    ? Math.round(dividend / divisor)
+    : dividend / divisor
+)
 
-foo({ a: 1 })({ c: 3 }) // 4
-foo({ a: 1 })({ b: 2, c: 3 }) // 6
+divide({ dividend: 9 })({ divisor: 2 }) // 4.5
+
+divide({ dividend: 9, round: true })({ divisor: 2 }) // 5
 ```
 
 ### Partial application works too
@@ -31,10 +42,10 @@ foo({ a: 1 })({ b: 2, c: 3 }) // 6
 const ncurry = require('ncurry')
 const { partial } = require('lodash/fp')
 
-const foo = ncurry((a, b, c) => a + b + c)
+const sum = ncurry((a, b, c) => a + b + c)
 
-const fooabc = partial(foo)([{ a: 1, b: 2, c: 3 }])
-fooabc() // 7
+const sumAbc = partial(sum)([{ a: 1, b: 2, c: 3 }])
+sumAbc() // 6
 ```
 
 ## Inspiration
