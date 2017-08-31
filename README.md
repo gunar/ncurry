@@ -1,10 +1,12 @@
 # ncurry
 
-Curry for Named Arguments.
+![ci](https://circleci.com/gh/gunar/ncurry.png?circle-token=158755b2084a927f33b1642a7667870adcba2fb9)
+
+Curry with named arguments (as opposed to positional).
 
 ## Usage
 
-Define functions with positional arguments, call it with named arguments.
+Define with positional, call as named.
 
 ```js
 const ncurry = require('ncurry')
