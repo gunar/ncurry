@@ -1,0 +1,23 @@
+dependencies:
+  pre:
+    - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'
+  override:
+    - yarn
+
+machine:
+  environment:
+    # For yarn
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+  node:
+    version: "8.4"
+  timezone: America/Los_Angeles
+
+test:
+  override:
+    - yarn test
+
+deployment:
+  release:
+    branch: master
+    commands:
+      - npm publish
