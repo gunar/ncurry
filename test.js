@@ -2,9 +2,7 @@ const test = require('tape')
 const { partial } = require('lodash/fp')
 const ncurry = require('./')
 
-const foo = ncurry(
-  ['a', 'b', 'c'],
-  ({a, b, c}) => a + b + c)
+const foo = ncurry((a, b, c) => a + b + c)
 
 test('original function', t => {
   const actual = foo({ a: 1, b: 2, c: 4})
@@ -43,3 +41,10 @@ test('argument overriding', t => {
   }
 })
 
+test('optional arguments', t => {
+  const bar = ncurry((a, b, { z }, c) => a + b + c + z)
+  const actual = bar({ a: 1, z: 10 })({ b: 2, c: 4})
+  const expected = 17
+  t.equal(actual, expected)
+  t.end()
+})
