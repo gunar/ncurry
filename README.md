@@ -11,13 +11,17 @@ Define with positional, call as named.
 ```js
 const ncurry = require('ncurry')
 
+// define your function using positional arguments
 const multiply = ncurry((a, b) => a * b)
 
-// pass one argument at a time
+// then call it using named arguments
+multiply({ a: 2, b: 3 }) // 6
+
+// as expected, you may pass one argument at a time
 multiply({ a: 2 })({ b: 3 }) // 6
 
-// or all at once
-multiply({ a: 2, b: 3 }) // 6
+// and in any order
+multiply({ b: 3 })({ a: 2 }) // 6
 ```
 
 ### Optional arguments
